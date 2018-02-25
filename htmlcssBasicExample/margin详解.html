@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>margin详解</title>
+<style>
+body{font-family:"微软雅黑";color:#0A638E;margin:0;}
+h2{font-size:24px;color:#ff0000;}
+div{color:#fff;line-height:50px;}
+p{border:1px solid #ccc;padding:10px;}
+h1{text-align:center;margin:20px 0;font-size:28px;}
+</style>
+</head>
+
+<body>
+<h1>margin叠加详解以及解决方案</h1>
+<h2>第一种情况：当两个元素上下排列的时候，两元素的间隔就是上面元素的下边距与下面元素的的上边距的叠加，但这时并不是两者数值的相加，而是取两者更大者的值作为两元素的外边距！</h2>
+<div style="height:50px;background:#067996;margin:90px 0">上下边距90像素</div>
+<div style="height:50px;background:#558F09;margin:100px 0">上下边距100像素</div>
+<p>如上实例，有两个div第一个div的上下边距是90像素，第二个div的上下边距是100像素，如果按照正常的来理解，那么两个div之间肯定是190像素了，但事实并非如此，两个div之间的距离刚好只有100像素，也就是两者之间最大的一个！</p>
+<div style="background:#BC10B1;margin:100px 0;text-align:right;">
+	<div style="height:50px;margin:50px 0;background:#0A90E5;width:50%;text-align:left"></div>
+</div>
+<p>再看如上如上例子：一个父层div的上下边距皆是100像素，里面包含一个子元素，其上下边距是50像素宽度是50%，照常理来说，我们看到的应该是类似如下的效果才是：</p>
+<img src="img/img002.png">
+<p style="color:#ff0000;">为什么会出现以上两种情况？这算是浏览器的bug吗？</p>
+<p>其实外边距叠加margin-collapsing一直以来就是W3C所制定的一个规范，为了防止元素之间不小心同时设置了margin而不是期望中的效果!</p>
+<p style="color:#ff0000">但是往往我们所想的margin都是两个margin的相加的结果，这样的表现效果难免会在具体项目中出现意想不到的效果，为了解决这个问题，我们又该如何解决margin叠加的问题？</p>
+<p>大致分为两种情况：</p>
+<p>一：兄弟元素之间的margin叠加</p>
+<p>
+◾让兄弟元素float
+◾让兄弟元素absolute
+◾让兄弟元素inline-block
+</p>
+<p>那么以上例子经过改正之后：</p>
+<div style="height:50px;background:#067996;margin:0 0 90px 0;float:left;width:100%;">下边距90像素</div>
+<div style="height:50px;background:#558F09;margin:100px 0 0 0;float:left;width:100%;">上边距100像素</div>
+<p>二：父子元素之间的margin叠加</p>
+<p>
+	◾为父元素创建BFC
+◾为父元素设置相应的padding或者border
+
+</p>
+<div style="background:#BC10B1;margin:100px 0;text-align:right;border:1px solid #ff0000;">
+	<div style="height:50px;margin:50px 0;background:#0A90E5;width:50%;text-align:left"></div>
+</div>
+</body>
+</html>

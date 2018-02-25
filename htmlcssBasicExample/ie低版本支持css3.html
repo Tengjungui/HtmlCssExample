@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>让ie低版本支持css3属性</title>
+<script src="js/jquery-1.4.2.min.js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="js/PIE_IE678.js"></script>
+<![endif]-->
+<script>
+$(function() {
+    if (window.PIE) {
+        $('.box').each(function() {
+            PIE.attach(this);
+        });
+    }
+});
+</script>
+<style>
+.box{width:900px;margin:0px auto;border:1px solid #ccc;overflow:hidden;zoom:1;border-radius:10px;-moz-box-shadow: 0 5px 20px #888888;-webkit-box-shadow: 0 5px 20px #888888;box-shadow: 0 5px 20px #888888;margin:30px auto;overflow:hidden;-ms-border-radius:10px;height:50px;background:#fff;text-shadow:0 0 5px #000;}
+</style>
+</head>
+
+<body>
+<div class="box">标题</div>
+</body>
+</html>

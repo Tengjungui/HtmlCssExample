@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+
+/*重置{*/
+
+html{color:#000;background:#fff;}
+
+body,div{padding:0;margin:0;}
+
+.clear{clear:both;height:0px;overflow:hidden;}
+
+/*}重置*/
+
+.outer{width:1040px;border:1px red solid;position:relative;margin:20px auto}
+
+.con2{width:600px;height:200px;float:left;border:1px blue solid;margin:20px;display:inline;}
+
+.con1,.con3,.con4,.con5{width:300px;height:200px;float:left;border:1px blue solid;margin:20px;display:inline;}
+
+.mask{width:300px;height:200px;background:#f00;position:absolute;left:-100px;top:40px;color:#fff;line-height:200px;text-align:center;font-size:30px;}
+.clear{clear:both;height:0;overflow:hidden;} 
+</style>
+
+</head>
+
+<body>
+
+<div class="outer">
+
+<div class="con1"></div>
+
+<div class="con2"></div>
+
+<div class="con3"></div>
+
+<div class="con4"></div>
+
+<div class="con5"></div>
+<div class="clear"></div>
+
+<div class="mask">我是蒙版层</div>
+
+
+
+</div>
+opacity:0.5;filter:alpha(opacity=50);
+</body>
+</html>

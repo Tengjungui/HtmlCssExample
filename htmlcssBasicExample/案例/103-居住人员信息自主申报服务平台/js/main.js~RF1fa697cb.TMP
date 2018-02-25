@@ -1,0 +1,153 @@
+/*通过className获取元素*/
+function getElementsByClassName(parent,className,tagName){
+		var aEls=parent.getElementsByTagName(tagName);
+		var arr=[];
+		for(var i=0;i<aEls.length;i++){
+			/*if(aEls[i].className==className){
+				arr.push(aEls[i]);
+			}*/
+			var aClassName=aEls[i].className.split(" ");
+			for(var j=0;j<aClassName.length;j++){
+				if(aClassName[j]==className){
+					arr.push(aEls[i]);
+					break;
+				}
+			}
+		}
+		return arr;
+}
+function css(obj, attr) {
+	if (obj.currentStyle) {
+		return obj.currentStyle[attr];
+	} else {
+		return getComputedStyle(obj, false)[attr];
+	}
+}
+function startMove(obj, json, fn) {
+	clearInterval(obj.iTimer);
+	var iCur = 0;
+	var iSpeed = 0;
+	obj.iTimer = setInterval(function() {
+		var iBtn = true;
+		for ( var attr in json ) {
+			var iTarget = json[attr];
+			if (attr == 'opacity') {
+				iCur = Math.round(css( obj, 'opacity' ) * 100);
+			} else {
+				iCur = parseInt(css(obj, attr));
+			}
+			iSpeed = ( iTarget - iCur ) / 8;
+			iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+			
+			if (iCur != iTarget) {
+				iBtn = false;
+				if (attr == 'opacity') {
+					obj.style.opacity = (iCur + iSpeed) / 100;
+					obj.style.filter = 'alpha(opacity='+ (iCur + iSpeed) +')';
+				} else {
+					obj.style[attr] = iCur + iSpeed + 'px';
+				}
+			}
+		}
+		if (iBtn) {
+			clearInterval(obj.iTimer);
+			fn && fn.call(obj);
+		}
+	}, 30);
+}
+/*鼠标经过图片放大效果*/
+function imagefocus(box) {
+	//在转换布局的，相对用户眼睛的位置保持不变
+	//offsetLeft[Top];
+	var oUl = document.getElementById(box);
+	var aLi = oUl.getElementsByTagName('li');
+	var arr = [];
+	var zIndex = 1;
+	var w=$(".menu").width();
+	var flag=true;
+	for (var i=0; i<aLi.length; i++) {
+		arr.push( {left: aLi[i].offsetLeft, top: aLi[i].offsetTop} );
+	}
+	for (var i=0; i<aLi.length; i++) {
+		aLi[i].index = i;
+		//在用js去设置css样式的时候：在同一个代码块中，有些css样式的设置的权限要高于其他的样式
+		/*aLi[i].style.left = aLi[i].offsetLeft + 'px';
+		aLi[i].style.top = aLi[i].offsetTop + 'px';*/
+		aLi[i].style.left = arr[i].left + 'px';
+		aLi[i].style.top = arr[i].top + 'px';
+		aLi[i].style.position = 'absolute';
+		aLi[i].style.margin = '0px';
+		aLi[i].style.width=Math.floor(0.15*w)+"px";
+		aLi[i].onclick=function(){
+			$("<div class='mask'></div>").appendTo("body");
+			var popbox=getElementsByClassName(document,"pop_box","*");
+			popbox[this.index].style.display="block";
+			flag=false;
+		}
+		aLi[i].onmouseover = function() {
+			this.style.zIndex = zIndex++;
+			startMove( this, {
+				width : Math.floor(0.18*w),
+				height : Math.floor(0.18*w),
+				left : arr[this.index].left - Math.floor(0.015*w),
+				top : arr[this.index].top - Math.floor(0.015*w)
+			});
+		}
+		$(".close").click(function(){
+			flag=true
+			$(".mask").remove();
+			$(".pop_box").fadeOut();
+			startMove( aLi[this.index], {
+				width : Math.floor(0.15*w),
+				height : Math.floor(0.15*w),
+				left : arr[this.index].left,
+				top : arr[this.index].top
+			});
+		})
+		aLi[i].onmouseout = function() {
+			if(flag){
+				startMove( this, {
+					width : Math.floor(0.15*w),
+					height : Math.floor(0.15*w),
+					left : arr[this.index].left,
+					top : arr[this.index].top
+				});
+			}
+			
+		}
+	}
+}
+window.onload=window.onresize=function(){
+	var widthM=$(".menu_item").width();
+	$(".menu_item").height(widthM)
+	if (window.PIE) {
+        $('.menu_bg').each(function() {
+            PIE.attach(this);
+        });
+		$('.pop_btn_red').each(function() {
+            PIE.attach(this);
+        });
+    }
+	imagefocus("menu")
+	$(".pop_box").each(function() {
+        var w=$(this).width();
+		var h=$(this).height();
+		this.style.marginTop=-h/2+"px";
+		this.style.marginLeft=-w/2+"px"
+    });
+	$(".menu_item").each(function() {
+        /*$(this).click(function(){
+			flag=false
+			var i=$(this).index();
+			$("<div class='mask'></div>").appendTo("body");
+			$(".pop_box").eq(i).fadeIn();
+			
+		})*/
+    });
+	$(".close").click(function(){
+		flag=true
+		$(".mask").remove();
+		$(".pop_box").fadeOut();
+	})
+}
+	

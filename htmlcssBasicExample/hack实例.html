@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>hack实例</title>
+<style>
+body{font-size:24px;font-family:"微软雅黑";white-space:pre-wrap;}
+</style>
+</head>
+
+<body>
+IE6：
+
+_selector{property:value;}
+
+selector{property:value;property:value !important;} //IE6 不支持同一选择符中的 !important
+
+IE7：
+
++selector{property:value;}
+
+IE8：
+
+selector{property:value\0;}
+
+IE6 & IE7：
+
+*selector{property:value;}
+
+IE6 & IE7 & IE8：
+
+selector{property:value\9;}
+
+</body>
+</html>

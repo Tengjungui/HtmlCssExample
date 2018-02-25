@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>垂直居中</title>
+<style>
+*{font-family:"微软雅黑";}
+#box1{height:24px;line-height:24px;border:1px solid #000;font-size:14px;}
+#box2{padding:24px 0;border:1px solid #000;text-align:center;margin:0 auto;}
+h2{font-size:16px;font-family:"微软雅黑";font-weight:normal;}
+#box3{display:table;height:100px;width:100%;}
+#box3 p{display:table-cell;vertical-align:middle;border:1px solid #000;width:100%;}
+</style>
+</head>
+
+<body>
+<div id="box1">单行内容垂直居中显示</div>
+<p>优点：<br/>
+1. 同时支持块级和内联极元素<br/>
+2. 支持所有浏览器<br/>
+缺点：<br/>
+1. 只能显示一行<br/>
+2. IE中不支持图片等的居中<br/>
+<h2>二、多行内容居中，且容器高度可变也很简单，给出一致的 padding-bottom 和 padding-top 就行</h2>
+<div id="box2">支持多行文字居中显示<br/>支持多行文字居中显示</div>
+<div id="box2"><img src="img/img001.jpg"/></div>
+<p>优点：<br/>
+1. 同时支持块级和内联极元素<br/>
+2. 支持非文本内容<br/>
+3. 支持所有浏览器<br/>
+缺点：<br/>
+容器不能固定高度</p>
+<h2>三、把容器当作表格单元</h2>
+<div id="box3"><p>作为表格垂直居中</p></div>
+<p>缺点：
+IE8以下无效</p>
+</body>
+</html>

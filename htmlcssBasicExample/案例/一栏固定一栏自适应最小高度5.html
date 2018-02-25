@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>*{padding: 0;margin: 0;}
+
+#container1 {
+
+float: left;
+
+width: 100%;
+
+overflow: hidden;
+
+position: relative;
+
+background-color: #dbddbb;
+
+}
+
+#container {
+
+background-color: orange;
+
+width: 100%;
+
+float: left;
+
+position: relative;
+
+left: 220px;/* 宽度大小等与边栏宽度大小*/
+
+}
+
+#left {
+
+float: left;
+
+margin-right: -100%;
+
+margin-left: -220px;/* 宽度大小等与边栏宽度大小*/
+
+width: 220px;
+
+}
+
+#content {
+
+float: left;
+
+width: 100%;
+
+margin-left: -220px;/* 宽度大小等与边栏宽度大小*/
+
+}
+
+#contentInner {
+
+margin-left: 220px;/* 宽度大小等与边栏宽度大小*/
+
+overflow: hidden;
+
+}
+
+#left,
+
+#content {
+
+min-height: 200px;
+
+height: auto !important;
+
+height: 200px;
+
+}
+</style>
+</head>
+
+<body>
+<div id="container1">
+
+<div id="container">
+
+<div id="left">Left Sidebar</div>
+
+<div id="content">
+
+<div id="contentInner">Main Content</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

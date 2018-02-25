@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>基础知识</title>
+<style>
+body{font-size:62.5%;}
+.main{width:1000px;margin:0 auto;font-size:1.4em;}
+h2{font-family:"微软雅黑";font-size:1.8em;font-weight:bold;margin:10px 0;color:#ff0000;}
+input{border:none;background:none;font-family:"微软雅黑"}
+p{white-space:pre-wrap;font-family:"微软雅黑";line-height:24px;}
+</style>
+</head>
+
+<body>
+<div class="main">
+<h2>常见标签</h2>
+<p>div            块
+img           图片（单标签）
+a               链接、下载、锚点
+h1-h6        标题
+p               段落
+strong       强调（粗体）
+em            强调（斜体）
+span          区分样式
+ul              无序列表
+ol              有序列表
+li               列表项
+dl              定义列表
+dt              定义列表标题
+dd             定义列表项
+</p>
+<h2>选择符的优先级</h2>
+<p>基础选择符的优先级
+	类型  <  class  <  id  < style(行间)  < js
+    选择符使用原则：准确的选中元素，又不影响其它。</p>
+<h2>a的四个伪类</h2>
+<p>
+伪类：伪类用于向被选中元素添加特殊的效果。（元素在特定情况下才具备的。）
+
+		link            未访问（默认）
+		hover         鼠标悬停（鼠标划过）
+		active         链接激活（鼠标按下）
+		visited        访问过后（点击过后）
+
+
+A四个伪类的顺序：
+	link    visited    hover  active
+	（love hate 记忆方法！）
+</p>
+<h2>前端规范</h2>
+<p>1、所有书写均在英文半角状态下的小写；
+2、id，class必须以字母开头；
+3、所有标签必须闭合；
+4、html标签用tab键缩进；
+5、属性值必须带引号；
+6、<input type="text" disabled value="<!-- html注释 -->">
+7、/* css注释 */
+8、ul,li/ol,li/dl,dt,dd拥有父子级关系的标签；
+9、p,dt,h标签  里面不能嵌套块属性标签；
+10、a标签不能嵌套a；
+11、内联元素不能嵌套块；</p>
+<h2>清浮动方法</h2>
+<p>
+1.加高
+问题：扩展性不好
+
+2.父级浮动
+问题：页面中所有元素都加浮动，margin左右自动失效（floats bad ！）
+
+3.inline-block 清浮动方法：
+	问题：margin左右自动失效；
+
+4.空标签清浮动
+问题：IE6 最小高度 19px；（解决后IE6下还有2px偏差）
+
+5.br清浮动
+问题：不符合工作中：结构、样式、行为，三者分离的要求。
+
+6.after伪类 清浮动方法（现在主流方法）
+.clear:after{content:'';display:block;clear:both;}
+.clear{zoom:1;}
+
+after伪类： 元素内部末尾添加内容；
+		:after{content"添加的内容";} IE6，7下不兼容
+zoom 缩放 
+		a、触发 IE下 haslayout，使元素根据自身内容计算宽高。
+		b、FF 不支持；
+7.overflow:hidden 清浮动方法；
+	问题：需要配合 宽度 或者 zoom 兼容IE6 IE7；
+
+
+overflow:  scroll | auto | hidden；
+	overflow:hidden;溢出隐藏（裁刀！）
+<h2>浮动兼容性问题</h2>
+<p>IE6双边距BUG（IE6下块属性标签浮动，并且有横向margin，横向margin加倍。）：
+	a、IE6
+	b、浮动
+	c、横向margin
+	d、块属性标签（加display:inline;）
+
+
+IE6下 li部分兼容性问题： 
+
+	a、左右两列布局，右边右浮动IE6 IE7下折行；(左边元素浮动)
+	b、IE6 IE7  li  下元素都浮动 在IE6 IE7下 li 下方会产生4px间隙问题；（加vertical-align:top；）
+    </p>
+</p>
+</div>
+
+</body>
+</html>

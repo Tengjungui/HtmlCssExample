@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ie6png透明</title>
+<!--[if IE 6]><script src="js/DD_belatedPNG.js"></script><![endif]-->
+<script>
+window.onload=function(){
+	if(navigator.userAgent.indexOf("MSIE 6.0") > 0) {
+	 	DD_belatedPNG.fix("img,img:hover");
+	}
+}
+</script>
+</head>
+
+<body style="background:#000;">
+<img src="img/woman.png"/>
+</body>
+</html>

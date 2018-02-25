@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>标签的嵌套规则</title>
+<style>
+textarea{width:90%;border:none;background:#03464B;color:#fff;line-height:24px;font-family:"微软雅黑";margin-left:8%;}
+h2{font-family:"微软雅黑";font-size:16px;color:#fff;text-indent:4em;}
+p{font-size:14px;font-family:"微软雅黑";color:#fff;text-indent:8em;}
+</style>
+</head>
+
+<body>
+<div class="article">
+
+    <h2>1. 块元素可以包含内联元素或某些块元素，但内联元素却不能包含块元素，它只能包含其它的内联元素：</h2>
+<textarea rows="4" disabled><div><h1></h1><p></p></div> —— 对
+<a href=”#”><span></span></a> —— 对
+<span><div></div></span> —— 错</textarea>
+	<h2>2. 块级元素不能放在p里面：</h2>
+    <textarea rows="4" disabled><p><ol><li></li></ol></p> —— 错
+<p><div></div></p> —— 错</textarea>
+	<h2>3. 有几个特殊的块级元素只能包含内嵌元素，不能再包含块级元素，这几个特殊的标签是：</h2>
+    <textarea rows="4" disabled>h1、h2、h3、h4、h5、h6、p、dt</textarea>
+    <h2>4. li 内可以包含 div 标签 </h2>
+    <textarea rows="4" disabled>li 和 div 标签都是装载内容的容器，地位平等，没有级别之分（例如：h1、h2 这样森严的等级制度^_^），要知道，li 标签连它的父级 ul 或者是 ol 都可以容纳的</textarea>
+    <h2>5. 块级元素与块级元素并列、内嵌元素与内嵌元素并列：</h2>
+    <textarea rows="4" disabled><div><h2></h2><p></p></div> —— 对
+<div><a href=”#”></a><span></span></div> —— 对
+<div><h2></h2><span></span></div> —— 错</textarea>
+</div>
+</body>
+</html>

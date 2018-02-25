@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>仿云盘拖拽上传</title>
+	<link type="text/css" rel="stylesheet" href="css/base.css" />
+	<meta name="keywords" content="HTML5 拖拽上传,仿360云盘拖拽上传,拖拽上传图片" />
+
+	<!-- Upload.css -->
+	<link type="text/css" rel="stylesheet" href="css/DragUpload.css" />
+</head>
+<body>
+	<h1 class="logo">
+		<span><a href="DragUpload.zip" target="_blank">[下载源代码]</a></span>
+		仿云盘拖拽上传<small>(拖拽文件到本窗口上传)</small>
+	</h1>
+	<div class="clearfix">
+		<dl class="art-list">
+			<dt>功能点实现</dt>
+			<dd>1. 拖拽文件至浏览器窗口上传</dd>
+			<dd>2. 批量上传多文件</dd>
+			<dd>3. 多文件队列发送操作</dd>
+			<dd>4. 上传进度条</dd>
+			<dd>5. 上传前，上传成功，上传错误回调方法</dd>
+			<dd>6. 友好的API</dd>
+		</dl>
+		<dl class="art-list">
+			<dt>Demo演示说明</dt>
+			<dd>1. 因是个人空间，所以所有上传数据为假，只是返回JSON数据</dd>
+			<dd>2. 上传前也做了限制，只能上传图片格式，大小不超过512KB</dd>
+			<dd>3. 因涉及HTML5 的事件，所以你懂的，只支持现代浏览器</dd>
+			<dd>4. Bug 的问题肯定少不了，所以有待继续优化</dd>
+			<dd>5. 个人学习项目，有问题请到Blog留言</dd>
+			<dd>6. 下载（上传无任何限制，包含服务端代码），请戳 <a href="DragUpload.zip" target="_blank">[这里]</a> </dd>
+		</dl>
+		<dl class="art-list">
+			<dt>Advert Time</dt>
+			<dd>1. 关于作者：<a href="http://webjyh.com" target="_blank">[M.J]</a></dd>
+			<dd>2. 作者Demo：<a href="http://demo.webjyh.com" target="_blank">[http://demo.webjyh.com]</a></dd>
+			<dd>3. 作者GitHub：<a href="https://github.com/webjyh" target="_blank">[https://github.com/webjyh]</a></dd>
+			<dd>4. 新浪微博：<a href="http://weibo.com/webjyh" target="_blank">[http://weibo.com/webjyh]</a></dd>
+			<dd>5. 自己在玩的，收藏各种精美图片，请戳 <a href="http://webjyh.lofter.com" target="_blank">[Lofter]</a></dd>
+			<dd>6. 联系作者：<a href="mailto:jiangiablog@gmail.com">[jiangiablog@gmail.com]</a></dd>
+		</dl>
+	</div>
+	<div class="desc">
+		<p>将文件拖放到本窗口可以上传<br />格式限制为图片类型，文件大小不超过512KB</p>
+	</div>
+
+
+
+	<!-- 下面是 Upload HTML && JS 必须-->
+	<div id="dropOverlay" class="dropOverlay hidden">
+		<h1>将文件拖放至此可以上传</h1>
+	</div>
+
+	<!-- Upload List -->
+	<div id="upload-dialog" class="uplaod-dialog uplaod-dialog-btn-min hidden">
+		<div class="uplaod-dialog-header" id="upload-dialog-header">
+			<span class="clearfix">
+				<a href="javascript:void(0);" class="uplaod-dialog-minWindow"></a>
+				<a href="javascript:void(0);" class="uplaod-dialog-close"></a>
+			</span>
+			<div class="uplaod-dialog-title">上传文件到云盘</div>
+		</div>
+		<div class="uplaod-dialog-content">
+			<ul id="upload-dialog-list">
+			</ul>
+		</div>
+	</div>
+
+	<!-- Require.js -->
+	<script type="text/javascript" data-main="js/config.js" src="http://cdn.bootcss.com/require.js/2.1.14/require.min.js"></script>
+
+	<!-- 统计代码 -->
+	<p style="display:none;">
+		<script type="text/javascript">
+		var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fad10be86eec597d23cb46147a8e8dbba' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</p>
+</body>
+</html>

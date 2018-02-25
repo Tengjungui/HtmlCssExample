@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>截取指定长度字符</title>
+<script>
+function SetSub(str,n){  
+   var strReg=/[^\x00-\xff]/g;  
+   var _str=str.replace(strReg,"**");  
+   var _len=_str.length;  
+   if(_len>n){  
+     var _newLen=Math.floor(n/2);  
+     var _strLen=str.length;  
+     for(var i=_newLen;i<_strLen;i++){  
+         var _newStr=str.substr(0,i).replace(strReg,"**");  
+         if(_newStr.length>=n){  
+             return str.substr(0,i)+"...";  
+             break;  
+        }  
+     }  
+   }else{  
+     return str;  
+   }  
+} 
+window.onload=function(){
+	var subStr=document.getElementById("text").innerHTML;
+	var newStr=SetSub(subStr,250); //中文e...  
+	document.getElementById("text").innerHTML=newStr;
+} 
+
+</script>
+</head>
+
+<body>
+<p id="text">一个种植界的哥德巴赫猜想：盐碱地里，用海水种水稻——变成了现实。羊城晚报记者从广东省湛江市有关部门获悉，一种可在海水里生长并长出稻谷，耐盐、耐淹能力强的海水稻，10月18日经农业部等海水稻专家现场考察，被一致认为是一种特异的水稻种质资源，具有很高的科学研究和利用价值。专家建议国家加强对海水稻资源的全面保护，并大力支持开展系统研究。海水稻发现者之一的陈日胜，为了海水稻繁育</p>
+</body>
+</html>

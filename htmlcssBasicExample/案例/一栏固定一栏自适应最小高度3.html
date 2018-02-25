@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin: 0;padding: 0;}
+#container{
+background-color:#0ff;
+overflow:hidden;
+padding-left:220px; /* 宽度大小等与边栏宽度大小*/
+}
+* html #container{
+height:1%; /* So IE plays nice */
+}
+#content{
+background-color:#0ff;
+width:100%;
+border-left:220px solid #f00;/* 宽度大小等与边栏宽度大小*/
+margin-left:-220px;/* 宽度大小等与边栏宽度大小*/
+float:right;
+}
+#sidebar{
+background-color:#f00;
+width:220px;
+float:right;
+margin-left:-220px;/* 宽度大小等与边栏宽度大小*/
+}
+#content,
+#sidebar {
+min-height: 200px;
+height: auto !important;
+height: 200px;
+}
+
+</style>
+</head>
+
+<body>
+<div id="container">
+
+<div id="content">Main Content</div>
+
+<div id="sidebar">Left Sidebar</div>
+
+</div>
+
+</body>
+</html>

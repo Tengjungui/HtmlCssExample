@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>清除浮动</title>
+<style>
+.main{width:1000px;margin:0 auto;border:1px solid #ff0000;}
+.left{width:240px;float:left;height:800px;border:1px solid #ccc;}
+.right{width:750px;float:right;height:800px;border:1px solid #ccc;}
+.clearfix:after {visibility: hidden;display: block;font-size: 0;content: " ";clear: both;height: 0;}
+.clearfix{*zoom:1;}
+</style>
+</head>
+
+<body>
+<div class="main clearfix">
+	<div class="left"></div>
+    <div class="right"></div>
+</div>
+</body>
+</html>

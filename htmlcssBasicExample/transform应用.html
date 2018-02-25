@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div{width:450px;font-size:50px;font-family:"微软雅黑";float:left;}
+.flipx {
+     -moz-transform:scaleX(-1);
+     -webkit-transform:scaleX(-1);
+     -o-transform:scaleX(-1);
+     transform:scaleX(-1);
+     filter:FlipH();
+}
+.flipy {
+     -moz-transform:scaleY(-1);
+     -webkit-transform:scaleY(-1);
+     -o-transform:scaleY(-1);
+     transform:scaleY(-1);
+     filter:FlipV();
+ }
+.rotate90 {
+    filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+ }
+/*顺时针旋转180度*/
+ .rotate180 {
+    filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+ }
+.rotate270 {
+    filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+ }
+</style>
+</head>
+
+<body>
+<div class="flipx">水平翻转</div>
+<div class="flipy">垂直翻转</div>
+<div class="rotate90">顺时针翻转90度</div>
+<div class="rotate180">顺时针翻转180度</div>
+<div class="rotate270">顺时针翻转270度</div>
+</body>
+</html>

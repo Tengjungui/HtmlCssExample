@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+body{margin:0;}
+.wrap{float:left;border:2px solid #000;}
+.box{width:100px;height:100px;background:red;margin:0 100px;float:left;_display:inline;}
+/*
+	IE6下的双边距BUG
+	在IE6下，块元素有浮动和横向margin的时候，横向的margin值会被放大成两倍
+	
+	解决办法: display:inline;
+*/
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="box"></div>
+</div>
+</body>
+</html>

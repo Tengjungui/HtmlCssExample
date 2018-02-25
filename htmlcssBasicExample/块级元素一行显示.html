@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>块级元素水平居中（导航）</title>
+<style>
+.clearfix:after {visibility: hidden;display: block;font-size: 0;content: " ";clear: both;height: 0;}
+.clearfix{*zoom:1;}
+.nav1{width:1000px;background:#000;margin:50px auto;padding:10px 0;list-style:none;}
+.nav1 li{float:left;padding:0 20px;}
+.nav1 li a{font-size:16px;font-family:"微软雅黑";color:#fff;text-decoration:none;}
+.nav2{font-size:0;letter-space:-4px;word-space:-4px;width:1000px;margin:10px auto;padding:10px 0;background:#000;text-align:center;}
+.nav2 li{display:inline-block;*display:inline;zoom:1;word-space:normal;letter-space:normal;font-size:16px;margin:0 30px;}
+.nav2 li a{font-family:"微软雅黑";color:#fff;text-decoration:none;}
+</style>
+</head>
+
+<body>
+<ul class="nav1 clearfix">
+	<li><a href="#">首页</a></li>
+    <li><a href="#">首页</a></li>
+    <li><a href="#">首页</a></li>
+    <li><a href="#">首页</a></li>
+    <li><a href="#">首页</a></li>
+    <li><a href="#">首页</a></li>
+    <li><a href="#">首页</a></li>
+    <li><a href="#">首页</a></li>
+</ul>
+<ul class="nav2">
+	<li><a href="#">首页</a></li>
+    <li><a href="#">首页</a></li>
+    <li><a href="#">首页</a></li>
+    <li><a href="#">首页</a></li>
+    <li><a href="#">首页</a></li>
+    <li><a href="#">首页</a></li>
+    <li><a href="#">首页</a></li>
+    <li><a href="#">首页</a></li>
+</ul>
+</body>
+</html>
